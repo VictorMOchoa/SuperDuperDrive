@@ -27,7 +27,6 @@ public class SignUpController {
     @PostMapping()
     public String signUp(@ModelAttribute User user, Model model) {
         String signupError = null;
-
         if (!userService.isUsernameAvailable(user.getUsername())) {
             signupError = "The specified username is already in use. Please enter another username.";
         } else {
@@ -48,6 +47,5 @@ public class SignUpController {
     private boolean userWasSuccessfullyCreated(int userId) {
         return userId > 0;
     }
-
 
 }
